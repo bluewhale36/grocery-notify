@@ -1,7 +1,6 @@
 import os
 import requests
 from datetime import datetime, timedelta
-import pprint
 
 # ------------------------------
 # 환경 변수 설정
@@ -32,12 +31,6 @@ res_list = [{"properties": item["properties"]} for item in req_res.get("results"
 
 today = datetime.today().date()
 three_days_later = today + timedelta(days=3)
-
-pprint.pprint(req_res)
-print("="*70)
-pprint.pprint(res_list)
-print("="*70)
-
 
 # ------------------------------
 # Notion 필드 헬퍼
@@ -125,6 +118,8 @@ def lambda_handler(event, context):
     else:
         print("[경고] PUSHOVER_TOKEN 또는 PUSHOVER_USER 환경 변수가 설정되지 않음. 콘솔 출력만 수행합니다.")
 
+
+"""
 def main():
     message = build_alert_message(res_list)
     print("[알림 메시지]\n", message)
@@ -137,3 +132,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+"""
